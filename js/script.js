@@ -52,7 +52,13 @@ createApp({
           
 
         checkIndex(index) {
-            return this.slides[index].display ? 'active' : 'none';
-        }
+            return this.slides[index].display ? 'active' : '';
+        },
+
+        activeClass(index) {
+            this.slides.forEach((slide, i) => {
+              slide.display = i === index;
+            });
+          }          
     }
 }).mount('#app');
