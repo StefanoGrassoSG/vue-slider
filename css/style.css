@@ -16,6 +16,7 @@
     width: 700px;
     height: 300px;
     position: relative;
+    display: none;
 }
 
 .item img {
@@ -102,4 +103,14 @@ oppure i caratteri ∧ (&and;) e ∨ (&or;)
     bottom: 35%;
     left: 50%;
     transform: translate(-50%) rotate(135deg);
+}
+
+
+
+.active {
+    display: block;
+}
+
+.none {
+    display: none;
 }
