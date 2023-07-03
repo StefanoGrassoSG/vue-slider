@@ -9,9 +9,7 @@ createApp({
                         image: 'img/01.webp',
                         title: 'Marvel\'s Spiderman Miles Morale',
                         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
-                        display: false,
-                        activeIndex: 0
-
+                        display: true,
                     }, {
                         image: 'img/02.webp',
                         title: 'Ratchet & Clank: Rift Apart',
@@ -38,11 +36,14 @@ createApp({
     },
     methods: {
         activeClass() {
-
+            const activeIndex = this.slides.findIndex((slide) => slide.display);
+            this.slides[activeIndex].display = false;
+            const nextIndex = (activeIndex + 1) % this.slides.length;
+            this.slides[nextIndex].display = true;
         },
 
-        checkIndex(indice) {
-            return (this.slides[indice].activeIndex == 0 ? 'active' : '');
+        checkIndex(index) {
+            return this.slides[index].display ? 'active' : 'none';
         }
     }
 }).mount('#app');
