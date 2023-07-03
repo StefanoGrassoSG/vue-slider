@@ -35,12 +35,21 @@ createApp({
         }
     },
     methods: {
-        activeClass() {
+        nextSlide() {
             const activeIndex = this.slides.findIndex((slide) => slide.display);
             this.slides[activeIndex].display = false;
             const nextIndex = (activeIndex + 1) % this.slides.length;
             this.slides[nextIndex].display = true;
         },
+          
+
+        prevSlide() {
+            const activeIndex = this.slides.findIndex((slide) => slide.display);
+            this.slides[activeIndex].display = false;
+            const prevIndex = activeIndex === 0 ? this.slides.length - 1 : activeIndex - 1;
+            this.slides[prevIndex].display = true;
+        },
+          
 
         checkIndex(index) {
             return this.slides[index].display ? 'active' : 'none';
