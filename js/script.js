@@ -40,9 +40,12 @@ createApp({
         nextSlide() {
             const activeIndex = this.slides.findIndex((slide) => slide.display);
             this.slides[activeIndex].display = false;
-            const nextIndex = (activeIndex + 1) % this.slides.length;
+            let nextIndex = activeIndex + 1;
+            if (nextIndex >= this.slides.length) {
+              nextIndex = 0;
+            }
             this.slides[nextIndex].display = true;
-        },
+          },
         
         prevSlide() {
             const activeIndex = this.slides.findIndex((slide) => slide.display);
