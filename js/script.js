@@ -56,9 +56,18 @@ createApp({
         },
 
         activeClass(index) {
+           
             this.slides.forEach((slide, i) => {
-              slide.display = i === index;
+              
+              if (i === index) {
+              
+                slide.display = true;
+              } else {
+               
+                slide.display = false;
+              }
             });
-          }          
+          }
+                 
     }
 }).mount('#app');
