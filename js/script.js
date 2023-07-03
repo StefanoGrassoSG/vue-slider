@@ -76,10 +76,6 @@ createApp({
         startAutoplay() {
             this.autoPlay = true;
         },
-
-        isActive(index) {
-            return this.slides[index].display;
-        }
     },
 
     mounted() {
