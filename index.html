@@ -32,7 +32,8 @@
 
                     <div class="thumb"
                         v-for="(single, index) in slides"
-                        :class="index === currentSlideIndex ? 'active' : ''">
+                        :class="index === currentSlideIndex ? 'active' : ''"
+                        @click="changeImage(index)">
                         <img :src="single.image" alt="Svezia" />
                     </div>
                    

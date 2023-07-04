@@ -33,6 +33,10 @@ createApp({
         }
     },
     methods: {
+        changeImage(i) {
+            this.currentSlideIndex = i;
+        },
+
         nextSlide() {
             if(this.currentSlideIndex < this.slides.length - 1) {
                 this.currentSlideIndex++
