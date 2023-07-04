@@ -29,10 +29,21 @@ createApp({
                     }
             ],
 
-            autoPlay: true
+            autoPlay: null
         }
     },
     methods: {
+        stopAutoplay() {
+            clearInterval(this.autoPlay)
+            this.autoPlay = null;
+        },
+
+        restartAutoplay() {
+            this.autoPlay = setInterval(() => {
+            this.nextSlide()
+        }, 2000)
+        },
+
         changeImage(i) {
             this.currentSlideIndex = i;
         },
@@ -57,6 +68,10 @@ createApp({
             }
         }
     },
-
+    mounted() {
+        this.autoPlay = setInterval(() => {
+            this.nextSlide()
+        }, 2000)
+    }
  
 }).mount('#app');
