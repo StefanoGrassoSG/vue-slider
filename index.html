@@ -14,14 +14,14 @@
     <div id="app">
 
         <div class="container">
-            <div class="slider-wrapper" @mouseenter="stopAutoplay()" @mouseleave="startAutoplay()" tabindex="0">
+            <div class="slider-wrapper" tabindex="0">
 
-                <div class="item" :class="checkIndex(index)" v-for="(single, index) in slides">
-                    <img :src="single.image" alt="Spiderman" />
+                <div class="item">
+                    <img :src="slides[currentSlideIndex].image" alt="Spiderman" />
                     <div class="text">
-                        <h3>{{ single.title }}</h3>
+                        <h3>{{ slides[currentSlideIndex].title }}</h3>
                         <p>
-                            {{ single.text }}
+                            {{ slides[currentSlideIndex].text }}
                         </p>
                     </div>
                 </div>
@@ -29,7 +29,10 @@
                 <div class="thumbs">
                     <div class="prev" @click="prevSlide()"></div>
                     <div class="next" @click="nextSlide()"></div>
-                    <div class="thumb" @click="activeClass(index)" :class="checkIndex(index)" v-for="(single, index) in slides">
+
+                    <div class="thumb"
+                        v-for="(single, index) in slides"
+                        :class="index === currentSlideIndex ? 'active' : ''">
                         <img :src="single.image" alt="Svezia" />
                     </div>
                    
